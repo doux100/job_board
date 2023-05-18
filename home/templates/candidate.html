@@ -1,0 +1,24 @@
+{% extends "base1.html" %} {% load bootstrap4 %} {% block log %}
+
+<div class="col-lg-8 mx-auto">
+    <div class="job_sumary">
+        <div class="single_candidates text-center">
+            <div class="thumb">
+                <img src="{{candidate.image.url}} " class="w-50 h-50 rounded-circle" alt="">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="job_content">
+    <ul>
+        <li>Name : <span>{{candidate}}</span></li>
+        <li>job : <span> {{candidate.job}}</span></li>
+        <li>E-mail : <span>{{candidate.email}}</span></li>
+        <li>Phone : <span>{{candidate.phone}}</span></li>
+        <li>City : <span> {{candidate.city}}</span></li>
+    </ul>
+</div>
+</div>
+</div>
+
+{% endblock %}

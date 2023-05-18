@@ -1,0 +1,7 @@
+{% extends "base1.html" %} {% load bootstrap4 %} {% block log %}
+<form method="post">
+    {% csrf_token %}
+    {% bootstrap_form signupform %}
+    <input type="submit" class="boxed-btn3 w-100" value="login">
+</form>
+{% endblock log %}
