@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'aghhbJOPPHOPUIOAHdfsdpoi^^%#$#&*))*(__&dbbsfdsagdfduyag^%()(_&^&aavdbasjidaa57ASDDASHVD566234BASBASDU21234fd))'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['.vercel.app']
 CSRF_COOKIE_SECURE=True
 SESSION_COOKIE_SECURE=True
 SECURE_SSL_REDIRECT=True
