@@ -5,19 +5,20 @@ from django.core.paginator import Paginator
 from .forms import applyform, addform
 from django.contrib.auth.decorators import login_required
 from .filters import jobFilter
+import json
 
 # Create your views here.
 
 
 def job_list(request):
     job_list = job.objects.all()
-    filter = jobFilter(request.GET, queryset=job_list)
+    filter = jobFilter(request.GET, queryset=job_list)    
     job_list_filter = filter.qs
     paginator = Paginator(job_list_filter, 3)
     page_number = request.GET.get("page")
     page_obj = paginator.get_page(page_number)
     cont = {'jobs': page_obj, 'filter': filter}
-    return render(request, 'job/list.html', cont)
+    return render(request, 'job/list.html', cont)       
 
 
 def job_desc(request, slug):

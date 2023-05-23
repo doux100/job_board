@@ -37,16 +37,17 @@
         </div>
         <div class="row">
 
-            {% for category in cat %}
-            <div class="col-lg-4 col-xl-3 col-md-6 text-center">
-                <div class="single_catagory ">
-                    <a href="{% url 'job:job_list' %}?category={{catigory.id}}">
-                        <h4>{{category}}</h4>
+            {% for c in cat %}
+            <div class="col-lg-4 col-xl-3 col-md-6">
+                <div class="single_catagory">
+                    <a href="jobs.html">
+                        <h4>{{c}}</h4>
                     </a>
+                    <p> <span>{{c.jobcount}}</span> Available position</p>
                 </div>
             </div>
             {% endfor %}
-            </form>
+
         </div>
     </div>
 </div>
@@ -151,55 +152,24 @@
             </div>
             <div class="col-lg-6 col-md-6">
                 <div class="brouse_job text-right">
-                    <a href="jobs.html" class="boxed-btn4">Browse More Job</a>
+                    <a href="{% url 'job:job_list' %}" class="boxed-btn4">Browse More Job</a>
                 </div>
             </div>
         </div>
         <div class="row">
+            {% for com in companies %}
             <div class="col-lg-4 col-xl-3 col-md-6">
                 <div class="single_company">
                     <div class="thumb">
-                        <img src="img/svg_icon/5.svg" alt="">
+                        <img src="{{com.image.url}}" class="w-100 h-100">
                     </div>
-                    <a href="jobs.html">
-                        <h3>Snack Studio</h3>
+                    <a href="{% url 'home:Companie' com.id %}">
+                        <h3>{{com}}</h3>
                     </a>
-                    <p> <span>50</span> Available position</p>
+                    <p> <span>{{companies.count}}</span> Available position</p>
                 </div>
             </div>
-            <div class="col-lg-4 col-xl-3 col-md-6">
-                <div class="single_company">
-                    <div class="thumb">
-                        <img src="img/svg_icon/4.svg" alt="">
-                    </div>
-                    <a href="jobs.html">
-                        <h3>Snack Studio</h3>
-                    </a>
-                    <p> <span>50</span> Available position</p>
-                </div>
-            </div>
-            <div class="col-lg-4 col-xl-3 col-md-6">
-                <div class="single_company">
-                    <div class="thumb">
-                        <img src="img/svg_icon/3.svg" alt="">
-                    </div>
-                    <a href="jobs.html">
-                        <h3>Snack Studio</h3>
-                    </a>
-                    <p> <span>50</span> Available position</p>
-                </div>
-            </div>
-            <div class="col-lg-4 col-xl-3 col-md-6">
-                <div class="single_company">
-                    <div class="thumb">
-                        <img src="img/svg_icon/1.svg" alt="">
-                    </div>
-                    <a href="jobs.html">
-                        <h3>Snack Studio</h3>
-                    </a>
-                    <p> <span>50</span> Available position</p>
-                </div>
-            </div>
+            {% endfor %}
         </div>
     </div>
 </div>

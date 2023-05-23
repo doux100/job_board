@@ -22,7 +22,7 @@
           <div class="form_inner white-bg">
             <h3>Filter</h3>
             <form method="get">
-
+              {% csrf_token %}
               {% bootstrap_form filter.form %}
               <div class="reset_btn">
                 <button class="boxed-btn3 w-100 mt-2" type="submit">Search</button>
