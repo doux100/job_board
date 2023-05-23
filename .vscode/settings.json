@@ -2,5 +2,7 @@
   "[python]": {
     "editor.defaultFormatter": "ms-python.autopep8"
   },
-  "python.formatting.provider": "none"
+  "python.formatting.provider": "none",
+  "appService.defaultWebAppToDeploy": "/subscriptions/d271a8d3-0183-451d-be09-33ceb018f1dc/resourceGroups/Ahmed/providers/Microsoft.Web/sites/job-board1",
+  "appService.deploySubpath": "."
 }
