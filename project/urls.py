@@ -24,10 +24,12 @@ urlpatterns = [
     path('', include('home.urls', namespace='home')),
     path('accounts/', include('django.contrib.auth.urls')),
     path('accounts/', include('accounts.urls', namespace='accounts')),
+    path('grappelli/', include('grappelli.urls')),
     path('admin/', admin.site.urls),
     path('job/', include('job.urls', namespace='job')),
     path('contact-us/', include('contact.urls', namespace='contact')),
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework'))
+    
 ]
 if settings.DEBUG:
     urlpatterns+=static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

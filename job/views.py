@@ -5,8 +5,8 @@ from django.core.paginator import Paginator
 from .forms import applyform, addform
 from django.contrib.auth.decorators import login_required
 from .filters import jobFilter
-import json
-
+from home.views import duplication
+from job.models import Category
 # Create your views here.
 
 
@@ -17,7 +17,9 @@ def job_list(request):
     paginator = Paginator(job_list_filter, 3)
     page_number = request.GET.get("page")
     page_obj = paginator.get_page(page_number)
-    cont = {'jobs': page_obj, 'filter': filter}
+    category_list=Category.objects.all()
+    category_obj=duplication(request,category_list,4)
+    cont = {'page_obj': page_obj, 'filter': filter,'cat':category_obj}
     return render(request, 'job/list.html', cont)       
 
 
@@ -31,7 +33,9 @@ def job_desc(request, slug):
             myform.save()
     else:
         form = applyform()
-    cont = {'job': job_desc, 'appform': form}
+    category_list=Category.objects.all()
+    category_obj=duplication(request,category_list,4)
+    cont = {'job': job_desc, 'appform': form,'cat':category_obj}
     return render(request, 'job/desc.html', cont)
 
 
@@ -46,6 +50,7 @@ def job_add(request):
             return redirect(reverse('job:job_list'))
     else:
         form = addform()
-
-    cont = {'job': job_desc, 'addform': form}
+    category_list=Category.objects.all()
+    category_obj=duplication(request,category_list,4)
+    cont = {'job': job_desc, 'addform': form,'cat':category_obj}
     return render(request, 'job/add.html', cont)
