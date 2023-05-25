@@ -52,7 +52,6 @@ INSTALLED_APPS = [
     'django_filters',
     'rest_framework',
 ]
-GRAPPELLI_ADMIN_TITLE = 'Joab Board'
 
 
 MIDDLEWARE = [

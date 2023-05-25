@@ -24,7 +24,6 @@ urlpatterns = [
     path('', include('home.urls', namespace='home')),
     path('accounts/', include('django.contrib.auth.urls')),
     path('accounts/', include('accounts.urls', namespace='accounts')),
-    path('grappelli/', include('grappelli.urls')),
     path('admin/', admin.site.urls),
     path('job/', include('job.urls', namespace='job')),
     path('contact-us/', include('contact.urls', namespace='contact')),
