@@ -37,7 +37,7 @@ ALLOWED_HOSTS = ['*']
 
 INSTALLED_APPS = [
     'accounts',
-    'grappelli',
+    'jazzmin',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -152,7 +152,7 @@ EMAIL_HOST_PASSWORD = 'xieynlbpkdjlgmff'
 EMAIL_PORT = '587'
 EMAIL_USE_TLS = True
 
-CSRF_TRUSTED_ORIGINS = ['https://job-board1.azurewebsites.net']
+CSRF_TRUSTED_ORIGINS = ['https://job-board2.azurewebsites.net']
 
 
 
