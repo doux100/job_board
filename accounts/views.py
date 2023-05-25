@@ -3,7 +3,7 @@ from django.urls import reverse
 from .forms import signupform, Userform, Profileform
 from django.contrib.auth import authenticate, login
 from .models import Profile
-from home.views import duplication
+from home.views import getPage
 from job.models import Category
 
 
@@ -22,16 +22,14 @@ def sign_up(request):
             return redirect(reverse('accounts:profile'))
     else:
         form = signupform()
-        category_list=Category.objects.all()
-        category_obj=duplication(request,category_list,4)
+        category_obj=getPage(request,Category,4)
         cont = {'signupform': form,'cat':category_obj}
     return render(request, 'registration/signup.html', cont)
 
 
 def user_profile(request):
     user_profile = Profile.objects.get(user=request.user)
-    category_list=Category.objects.all()
-    category_obj=duplication(request,category_list,4)
+    category_obj=getPage(request,Category,4)
     return render(request, 'accounts/profile.html', {'profile': user_profile,'cat':category_obj})
 
 
@@ -50,6 +48,5 @@ def profile_edit(request):
     else:
         userform = Userform(instance=request.user)
         profileform = Profileform(instance=profile)
-        category_list=Category.objects.all()
-        category_obj=duplication(request,category_list,4)
+        category_obj=getPage(request,Category,4)
     return render(request, 'accounts/profile_edit.html', {'profileform': profileform, 'userform': userform,'cat':category_obj})

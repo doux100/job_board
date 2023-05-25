@@ -1,10 +1,10 @@
 import django_filters
-from .models import job
+from .models import Job
 
 
 class jobFilter(django_filters.FilterSet):
     title = django_filters.CharFilter(lookup_expr='icontains')
     description = django_filters.CharFilter(lookup_expr='icontains')
     class Meta:
-        model = job
+        model = Job
         fields = ['title', 'job_type', 'description', 'vacancy', 'experience', 'category']

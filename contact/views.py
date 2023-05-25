@@ -2,7 +2,7 @@ from django.shortcuts import render
 from .models import data
 from django.core.mail import send_mail
 from django.conf import settings
-from home.views import duplication
+from home.views import getPage
 from job.models import Category
 # Create your views here.
 
@@ -19,6 +19,5 @@ def contact(request):
             email,
             [settings.EMAIL_HOST_USER],
         )
-    category_list=Category.objects.all()
-    category_obj=duplication(request,category_list,4)
+    category_obj=getPage(request,Category,4)
     return render(request, 'contact.html', {'data': mydata,'cat':category_obj})

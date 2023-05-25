@@ -1,10 +1,10 @@
 from django.contrib import admin
 
 # Register your models here.
-from .models import job, Category, apply
+from .models import Job, Category, apply
 admin.site.site_header='Job Board Admin Panel'
 class InlineCategory(admin.StackedInline):
-    model=job
+    model=Job
     extra=1
 class JobAdmin(admin.ModelAdmin):
     list_display=('title','owner','vacancy')
@@ -13,6 +13,6 @@ class JobAdmin(admin.ModelAdmin):
 class CategoryAdmin(admin.ModelAdmin):
         inlines=[InlineCategory]
 
-admin.site.register(job,JobAdmin)
+admin.site.register(Job,JobAdmin)
 admin.site.register(Category,CategoryAdmin)
 admin.site.register(apply)

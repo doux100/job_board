@@ -1,5 +1,5 @@
 from django import forms
-from .models import apply, job
+from .models import apply, Job
 
 
 class applyform(forms.ModelForm):
@@ -10,6 +10,6 @@ class applyform(forms.ModelForm):
 
 class addform(forms.ModelForm):
     class Meta:
-        model = job
+        model = Job
         fields = '__all__'
         exclude = ('slug', 'owner')

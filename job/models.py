@@ -13,7 +13,7 @@ def imgupload(ins, fname):
     return "jobs/%s.%s" % (ins.id, ext)
 
 
-class job(models.Model):
+class Job(models.Model):
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
     title = models.CharField(max_length=50)
     job_type = models.CharField(max_length=15, choices=jtype, null=True)
@@ -29,7 +29,7 @@ class job(models.Model):
     city = models.ForeignKey(city,on_delete=models.CASCADE,null=True)
     def save(self, *args, **kwargs):
         self.slug = slugify(self.title)
-        super(job, self).save(*args, **kwargs)
+        super(Job, self).save(*args, **kwargs)
 
     def __str__(self):
         return self.title
@@ -46,7 +46,7 @@ class Category (models.Model):
 
 
 class apply(models.Model):
-    job = models.ForeignKey(job, null=True, on_delete=models.CASCADE)
+    job = models.ForeignKey(Job, null=True, on_delete=models.CASCADE)
     name = models.CharField(max_length=50)
     email = models.EmailField(max_length=254)
     web = models.URLField(max_length=200, null=True)
