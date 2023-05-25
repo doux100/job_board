@@ -2,7 +2,7 @@ from django.conf.urls.static import static
 from django.conf import settings
 from django.urls import path, include
 from django.contrib import admin
-1
+import grappelli
 """
 URL configuration for project project.
 
@@ -24,6 +24,7 @@ urlpatterns = [
     path('', include('home.urls', namespace='home')),
     path('accounts/', include('django.contrib.auth.urls')),
     path('accounts/', include('accounts.urls', namespace='accounts')),
+    path('grappelli/', include('grappelli.urls')), # grappelli URLS
     path('admin/', admin.site.urls),
     path('job/', include('job.urls', namespace='job')),
     path('contact-us/', include('contact.urls', namespace='contact')),

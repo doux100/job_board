@@ -3,6 +3,7 @@ from django.contrib import admin
 # Register your models here.
 from .models import Job, Category, apply
 admin.site.site_header='Job Board Admin Panel'
+admin.site.index_title='Job Board Administration'
 class InlineCategory(admin.StackedInline):
     model=Job
     extra=1
